@@ -41,16 +41,17 @@ def extract(url, table_attribs):
     # table rows loop
     for row in rows:
 
-        # table data and href extraction from row
-        cols = row.find_all("td")
-        lnks = row.find_all("a")
+        # table data extraction from row
+        col = row.find_all("td")
 
         # extract data from valid rows and assign it to data frame
-        if len(cols) != 0:
-            data_dict = {table_attribs[0]: lnks[1].contents[0],
-                         table_attribs[1]: float(cols[2].contents[0].replace(',',''))}
-            dfs = [df,pd.DataFrame(data_dict, index=[0])] 
-            df  = pd.concat([df for df in dfs  if not df.empty], ignore_index=True)
+        if len(col) != 0:
+            bank_name = col[1].find_all('a')[1]['title']
+            market_cap = float(col[2].contents[0][:-1])
+            data_dict = {'Name': bank_name,
+                         'MC_USD_Billion': market_cap}
+            df1 = pd.DataFrame(data_dict, index=[0])
+            df = pd.concat([df,df1], ignore_index=True)
 
     # extracted data frame
     return df
