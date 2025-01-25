@@ -1,5 +1,5 @@
 # largest-banks
-Data Engineering - Module 2 final project
+Acquiring and Processing Information on the World's Largest Banks ( Data Engineering - Final Project: Module 2 )
 
 ## Introduction
 In this project, you will put all the skills acquired throughout the course and your knowledge of basic Python to test. You will work on real-world data and perform the operations of Extraction, Transformation, and Loading as required. Throughout the project, you will note some outputs you need to answer questions on the graded quiz. You will also take snapshots, which you will upload in the peer-graded assignment.
